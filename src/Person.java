@@ -1,17 +1,17 @@
 class Person {
     /**
-     * Field / Attribut / Properties
-     * Adalah data yang bisa kita sisipkan di dalam objek
-     * Namun sebelum kita bisa memasukkan data ke dalam object, terlebih dahulu kita deklarasikan data
-       apa saja yang dimiliki objek tersebut. Pendeklarasian ini kita buat di dalam class
-     * Membuat field itu sama seperti kita membuat variabel
+     * Method
+     * Selain attribute, kita bisa menambahkan method ke dalam object
+     * Method itu bisa dibilang fungsi yang kita deklarasikan di class, kemudian bisa kita panggil pada saat membuat objek
      */
 
     String name;
     String address;
-    final String ditrict = "Gunungkidul"; // kata kunci final artinya field tidak akan bisa diubah datanya (mirip kaya constanta)
+    final String district = "Gunungkidul";
 
-    /**
-     * Dengan membuat fild seperti di atas, maka class memiliki sesuatu utnuk diakses oleh objek-nya
-     */
+    // membuat method
+    void sayHello(String paramName) {
+        System.out.println("Hello " + paramName + ", nama saya adalah " + name + ". Saya beralamat di " + address + ", dan saya berasal dari " + district);
+    }
+
 }
