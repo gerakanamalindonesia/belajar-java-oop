@@ -1,10 +1,14 @@
 class Person {
     /**
-     * Constructor
-     * Constructor adalah method yang pertama kali dijalankan saat pertama kali object dibuat
-     * Mirip seperti di metod, kita bisa memberi parameter pada constructor
-     * Nama constructor harus sama dengan nama class, dan tidak membutuhkan kara kuci void serta tidak mengembalikan value
-     * Jika kita memberikan parameter di constructornya, maka saat membuat objek kita WAJIB mengisi parameternya ya
+     * Constructor Overloading
+     * Sama seperti di method / function, kita bisa melakukan overloading
+     * Kita bisa membuat constructor lebih dari satu, dengan syarat tipe data parameter harus berbeda, atau jumlah parameter harus berbeda
+     */
+
+    /**
+     * Sama juga seperti di function, coinstructor bisa memanggil constructor lain
+     * Hal ini memudahkan saat kita butuh menginisialisasi data degan berbagai kemungkinan
+     * Cara memanggil constructor lain, kita hanya perlu memanggilnya seperti memanggil method, namun dengan kata kunci this
      */
 
     String name;
@@ -15,6 +19,15 @@ class Person {
     Person(String paramName, String paramAddres) {
         name = paramName;
         address = paramAddres;
+    }
+
+    Person(String paramName) {
+        // name = paramName;
+        this(paramName, null); // ini memanggi constructor Person di atas, dan karena di constructor ini tidak ada param address maka kita buat parameter keduanya null
+    }
+
+    Person() {
+        this(null); // ini memanggi constructor Person di atas, dan karena di constructor ini tidak ada param name maka kita buat parameternya null
     }
 
     // membuat method
