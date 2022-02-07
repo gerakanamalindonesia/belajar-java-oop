@@ -6,14 +6,16 @@ public class PersonApp {
         System.out.println(person1.address);
         person1.sayHello("Rina");
 
-        Person person2 = new Person("Budi"); // constructor satu parameter
+        Person person2 = new Person("Budi", "Jakarta"); // constructor satu parameter
         person2.address = "Jakarta";
         person2.sayHello("Ani");
 
+        /*
         Person person3;
         person3 = new Person(); // constuctor tanpa parameter
         person3.name = "Joko";
         person3.address = "Cirebon";
         person3.sayHello("Marni");
+        */
     }
 }
