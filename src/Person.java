@@ -1,13 +1,15 @@
 class Person {
     /**
-     * Variabek Shadowing
-     * Variabel shadowing adalah kejadian ketika kita membuat
-       nama variabel dengan nama yang sama di scope yang menutupi
-       variabel dengan nama yang sama di scope di atasnya
-     * Ini biasa terjadi seperti kita membuat nama parameter di method
-       sama dengan nama field di class
-     * Saat terjadi variabel shadowing maka secara otomatis variabel
-       di atasnya tidak bisa diakses
+     * Memahami kata kunci this
+     * Ketika kita membuat kode di dalam block constructor atau method di dalam class, kita
+       bisa menggunakan kata kunci "this" untuk mengakses object saat ini
+     * Misal kadang kita butuh mengakses sebauh field yang namanya sama dengan parameter method,
+       hal ini tidak akan bisa dilakukan jika langsung menyebut nama field, dalam arti lain akan
+       terjadi variabel shadowing. Namun jika terpaksa ada nama yang sama maka kita bisa
+       mengakses nama field tersebut dengan meggunakan "this"
+     * This tidak hanya digunakan untuk mengakses field milik object saat ini, namun juga bisa
+       digunakan untuk mengakses method
+     * Dan tentu saja this ini bisa digunakan untuk mengatasi masalah variabel shadowing
      */
 
     String name;
@@ -15,35 +17,15 @@ class Person {
     final String district = "Gunungkidul";
 
     Person(String name, String address) {
-        name = name; // name di ( = name ) ini ngambil di parameter, bukan di field si atasnya, sehingga name tidak akan berubah
-        address = address;
+        this.name = name; // this.name ini menunjukkan kalau nilai dari fiel name di class sama denga nilai parameter name di function
+        this.address = address;
+    }
+
+    void sayHello() {
+        this.sayHello("Bos");
     }
 
     void sayHello(String name) {
-        System.out.println("Hello " + name + ", nama saya adalah " + name + ". Saya beralamat di " + address + ", dan serasal dari " + district);
+        System.out.println("Hello " + name + ", my name is " + this.name + ", and i live in " + this.address);
     }
-
-    /*
-    // membuat constructor
-    Person(String paramName, String paramAddres) {
-        name = paramName;
-        address = paramAddres;
-    }
-
-    Person(String paramName) {
-        // name = paramName;
-        this(paramName, null); // ini memanggi constructor Person di atas, dan karena di constructor ini tidak ada param address maka kita buat parameter keduanya null
-    }
-
-    Person() {
-        this(null); // ini memanggi constructor Person di atas, dan karena di constructor ini tidak ada param name maka kita buat parameternya null
-    }
-
-
-    // membuat method
-    void sayHello(String paramName) {
-        System.out.println("Hello " + paramName + ", nama saya adalah " + name + ". Saya beralamat di " + address + ", dan serasal dari " + district);
-    }
-    */
-
 }
