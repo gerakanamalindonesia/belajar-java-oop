@@ -1,0 +1,2 @@
+class Mobil extends Kendaraan {
+}
